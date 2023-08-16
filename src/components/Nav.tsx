@@ -101,7 +101,7 @@ export default function Nav() {
                 color: navMagicTexts,
               }}
             >
-              Miks
+              M
             </Typography>
 
             <Box
@@ -197,61 +197,23 @@ export default function Nav() {
                 flexGrow: 1,
                 display: { xs: "none", md: "flex" },
                 color: navMagicTexts,
+                // bgcolor:"white"
               }}
             >
-              <NavLink to="/">
-                <Button
-                  sx={{ color: navMagicTexts }}
-                  onClick={handleCloseNavMenu}
-                  variant="text"
-                >
-                  Home
-                </Button>
-              </NavLink>
+             
+            </Box>
 
-              <Link to="/news">
-                <Button
-                  sx={{ color: navMagicTexts }}
-                  onClick={handleCloseNavMenu}
-                >
-                  News
-                </Button>
-              </Link>
-
-              <Link to="/blogs">
-                <Button
-                  sx={{ color: navMagicTexts }}
-                  onClick={handleCloseNavMenu}
-                >
-                  Blog
-                </Button>
-              </Link>
-
+            <Box sx={{ flexGrow: 0 }}>
               <Link to="/contact">
                 <Button
                   sx={{ color: navMagicTexts }}
                   onClick={handleCloseNavMenu}
+                  variant="btnLink"
                 >
                   Contact
                 </Button>
               </Link>
-
-              <Link to="/learn">
-                <Button
-                  sx={{ color: navMagicTexts }}
-                  onClick={handleCloseNavMenu}
-                >
-                  Learn
-                </Button>
-              </Link>
-            </Box>
-
-            <Box sx={{ flexGrow: 0 }}>
-            <Link to="/login">
-              <Button variant="contained" sx={{ borderRadius: "16px", px: 4 }}>
-                Login
-              </Button>
-            </Link>
+           
             </Box>
           </Toolbar>
         </Container>

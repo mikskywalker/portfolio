@@ -54,7 +54,7 @@ const theme = createTheme({
               left: 0,
               width: "0%",
               height: "2px",
-              background: "#000",
+              background: "#0BD99E",
               transition: "width .3s",
             },
             "&:hover:after": {
