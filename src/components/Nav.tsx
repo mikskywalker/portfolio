@@ -116,7 +116,7 @@ export default function Nav() {
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleOpenNavMenu}
-                sx={{ color: "black" }}
+                sx={{ color: "white" }}
               >
                 <MenuIcon />
               </IconButton>
@@ -188,7 +188,7 @@ export default function Nav() {
                 textDecoration: "none",
               }}
             >
-              LEVI
+              M
             </Typography>
 
             {/* Web view */}
