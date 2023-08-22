@@ -17,12 +17,12 @@ export default function HomePage() {
         marginBottom: "5rem",
       }}
     >
-      <Grid item xs={9}>
+      <Grid item xs={9} lg={7}>
         <Typography variant="h3" color="white">
           hey, I'm Miks 👋🏼
         </Typography>
       </Grid>
-      <Grid item xs={9}>
+      <Grid item xs={9} lg={7}>
         <Grid container direction="row">
           <Grid item>
             <Typography variant="h6" color="lightgray">
@@ -41,10 +41,10 @@ export default function HomePage() {
           </Grid>
         </Grid>
       </Grid>
-      <Grid item xs={9}>
+      <Grid item xs={9} lg={7}>
         <MiksImageList />
       </Grid>
-      <Grid item xs={9}>
+      <Grid item xs={9} lg={7}>
         <Typography variant="h6" color="lightgray">
           I create educational content for aspiring violinists, teaching them
           about my philosophy, techniques, approach in learning music,
@@ -53,37 +53,59 @@ export default function HomePage() {
           You can watch or listen to some of my favorites below.
         </Typography>
       </Grid>
-      <Grid item xs={9}>
+      <Grid item xs={9} lg={7}>
         <Grid container spacing={2}>
-          <Grid item xs={6}>
+          <Grid item xs={12} md={6}>
             <BigBtn title="@mikscasal" subscribers="1.37K" platform="youtube" />
           </Grid>
-          <Grid item xs={6}>
-            <BigBtn title="@mikscasal"  platform="spotify" />
+          <Grid item xs={12} md={6}>
+            <BigBtn title="@mikscasal" platform="spotify" />
           </Grid>
         </Grid>
       </Grid>
-      <Grid item xs={9}>
+      <Grid item xs={9} lg={7}>
         <Typography variant="h6" color="lightgray">
           {/* TODO:  */}
-        Over the past decade, I've written content on my blog and newsletter. I try to keep things simple. You'll find writing about technologies I'm interested in at the time, or how I'm learning and growing in my career, sharing knowledge along the way.
+          Over the past decade, I've written content on my blog and newsletter.
+          I try to keep things simple. You'll find writing about technologies
+          I'm interested in at the time, or how I'm learning and growing in my
+          career, sharing knowledge along the way.
         </Typography>
       </Grid>
-      <Grid item xs={9}>
+      <Grid item xs={9} lg={7}>
         <Grid container spacing={1}>
           <Grid item xs={12}>
-          <BigBtn title="@mikscasal" subscribers="1.37K" platform="youtube" />
-          </Grid>
-          <Grid item xs={12}> 
-          <BigBtn title="@mikscasal" subscribers="1.37K" platform="youtube" />
+            <BigBtn title="@mikscasal" subscribers="1.37K" platform="youtube" />
           </Grid>
           <Grid item xs={12}>
-          <BigBtn title="@mikscasal" subscribers="1.37K" platform="youtube" />
+            <BigBtn title="@mikscasal" subscribers="1.37K" platform="youtube" />
+          </Grid>
+          <Grid item xs={12}>
+            <BigBtn title="@mikscasal" subscribers="1.37K" platform="youtube" />
           </Grid>
         </Grid>
-    
-    
-     
+      </Grid>
+      <Grid item xs={9} lg={7}>
+        <Typography variant="h6" color="lightgray">
+          I invest small angel checks into early stage startups building tools
+          for developers.
+        </Typography>
+      </Grid>
+      <Grid item xs={9} lg={7}>
+        <Grid container spacing={1}>
+          <Grid item xs={4}>
+            <BigBtn title="who some logo" noEndIcon />
+          </Grid>
+          <Grid item xs={4}>
+            <BigBtn title="who some logo" noEndIcon />
+          </Grid>
+          <Grid item xs={4}>
+            <BigBtn title="who some logo" noEndIcon />
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item  xs={9} lg={7}>
+        <Typography variant="h6" color="lightgray" >I've also worked with or advised companies like Convex, Fauna, Plasmic, and more about developer marketing, DevRel, and building open-source communities.</Typography>
       </Grid>
     </Grid>
   );

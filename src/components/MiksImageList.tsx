@@ -15,7 +15,7 @@ import myImage9 from '../assets/mikspics/9.jpg';
 export default function MiksImageList() {
   return (
     <Box sx={{ maxWidth: '100%', height: '100%' }}>
-      <ImageList variant="quilted" cols={3} gap={12}>
+      <ImageList variant="masonry" cols={3} gap={12}>
         {itemData.map((item) => (
           <ImageListItem key={item.img}>
             <img
