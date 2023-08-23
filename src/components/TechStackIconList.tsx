@@ -19,21 +19,21 @@ import { ReactComponent as VSLogo} from '../assets/mikspics/icons8-visual-studio
 
 export default function TechStack() {
 const logos = [
+    ReactLogo,
     TypeScriptLogo,
-    BootstrapLogo,
+    ReduxLogo,
+    MuiLogo,
     ChakraUILogo,
-    ChatGPTLogo,
-    WebexLogo,
+    BootstrapLogo,
+    JSLogo,
     GitHubLogo,
     GitLabLogo,
-    JSLogo,
-    JiraLogo,
-    MuiLogo,
-    ReactLogo,
-    ReduxLogo,
     SlackLogo,
+    WebexLogo,
+    JiraLogo,
     SourceTreeLogo,
     VSLogo,
+    ChatGPTLogo,
 ]
 //  transitionDelay: `${index * 50}ms` delays the preview of each icon :P
     return (
