@@ -1,4 +1,4 @@
-import { Icon } from '@mui/material';
+import { Fade, Grid, Grow, Icon } from '@mui/material';
 import { ReactComponent as TypeScriptLogo } from '../assets/mikspics/icons8-typescript.svg'
 import { ReactComponent as BootstrapLogo } from '../assets/mikspics/icons8-bootstrap.svg'
 import { ReactComponent as ChakraUILogo } from '../assets/mikspics/icons8-chakra-ui.svg'
@@ -34,14 +34,17 @@ const logos = [
     SlackLogo,
     SourceTreeLogo,
     VSLogo,
-    
 ]
-
+//  transitionDelay: `${index * 50}ms` delays the preview of each icon :P
     return (
-        <div style={{color: 'white', fontSize: '10rem'}}>
+      <Grid container spacing={1} sx={{ fontSize: "3rem" }}>
         {logos.map((logo, index) => (
-            <Icon key={index} component={logo} fontSize='inherit' />
+          <Grid item key={index}>
+            <Fade in style={{transitionDelay: `${index * 200}ms`}}>
+              <Icon  component={logo} fontSize="inherit" />
+            </Fade>
+          </Grid>
         ))}
-        </div>
-    )
+      </Grid>
+    );
 }

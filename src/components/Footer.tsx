@@ -1,9 +1,12 @@
 import React from "react";
-import { Box, Button, Grid, Typography } from "@mui/material";
+import { Box, Button, Grid, IconButton, Link, Typography } from "@mui/material";
 
 // icons
 import TwitterIcon from "@mui/icons-material/Twitter";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from '@mui/icons-material/GitHub';
+import YouTubeIcon from '@mui/icons-material/YouTube';
 
 export default function Footer() {
   /**
@@ -20,127 +23,70 @@ export default function Footer() {
     disableTouchRipple: true,
   };
 
-  const supportItemList = [
-    { id: 1, title: "Guidelines for using copyrighted content" },
-    { id: 2, title: "Service withdrawal" },
-    { id: 3, title: "Defect information" },
-    { id: 4, title: "E-mail magazine" },
-    { id: 5, title: "Inquiry" },
-    { id: 6, title: "FAQ" },
-  ];
-
-  const libraryItemList = [
-    { id: 1, title: "Official Broadcast" },
-    { id: 2, title: "Screenshots" },
-    { id: 3, title: "Fan Kit" },
-    { id: 4, title: "Movie" },
-  ];
-
   return (
-    <Box pt={4} bgcolor='white' color='black'>
-      <Grid container spacing={5} justifyContent="center" mb={2}>
-        {/*  news, blogs, library*/}
-        <Grid item>
-          <Grid container>
-            <Grid item>
-              <Grid container direction="column">
-                <Grid item>
-                  <Typography variant="h6"> News</Typography>
-                  <Button variant="btnLink" {...coolBtnProps}>
-                    notice
-                  </Button>
-                </Grid>
-                <Grid item>
-                  <Button variant="btnLink" {...coolBtnProps}>
-                    all
-                  </Button>
-                </Grid>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
-        {/* Library */}
-        <Grid item>
-          <Typography variant="h6"> Library</Typography>
-          <Grid container direction="column">
-            {libraryItemList.map((item) => (
-              <Grid item key={item.id}>
-                <Button variant="btnLink" {...coolBtnProps}>
-                  {item.title}
-                </Button>
-              </Grid>
-            ))}
-          </Grid>
-        </Grid>
-
-        {/* support */}
-        <Grid item>
-          <Typography variant="h6"> Support</Typography>
-          <Grid container direction="column">
-            {supportItemList.map((item) => (
-              <Grid item key={item.id}>
-                <Button variant="btnLink" {...coolBtnProps}>
-                  {item.title}
-                </Button>
-              </Grid>
-            ))}
-          </Grid>
-        </Grid>
-
-        {/* social media */}
-        <Grid item mb={2}>
-          <Grid container direction="column" spacing={3}>
-            <Grid item>
-              <Typography gutterBottom variant="body2">
-                Official Twitter Account
-              </Typography>
+    <Box bgcolor="#000000">
+      <Grid
+        container
+        justifyContent="center"
+        spacing={3}
+        pt={2}
+        pb={2}
+        color="white"
+      >
+        <Grid item xs={9} lg={7}>
+          <Grid container spacing={1} color="white">
+            <Grid item xs="auto" md={4}>
               <Button
-                size="large"
-                variant="outlined"
+                disableRipple
+                variant="text"
+                component={Link}
+                href="https://twitter.com/mikscasal"
                 startIcon={<TwitterIcon />}
-                endIcon={<ArrowOutwardIcon />}
+                sx={{ textTransform: "none", fontSize: "large" }}
               >
-                @learnviolin_adventure
+                Follow me on twitter
               </Button>
             </Grid>
-            <Grid item>
-              <Typography gutterBottom variant="body2">
-                Official Youtube Channel
-              </Typography>
+            <Grid item xs="auto">
               <Button
-                size="large"
-                variant="outlined"
-                startIcon={<TwitterIcon />}
-                endIcon={<ArrowOutwardIcon />}
+                disableRipple
+                component={Link}
+                href="https://www.linkedin.com/in/mikscasal/"
+                variant="text"
+                startIcon={<LinkedInIcon sx={{ color: "#0077B5" }} />}
+                sx={{ textTransform: "none", fontSize: "large" }}
               >
-                Learn Violin
+                Let's connect on LinkedIn
               </Button>
             </Grid>
           </Grid>
         </Grid>
-      </Grid>
 
-      {/* bottom */}
-      <Grid container justifyContent="center" spacing={3} pt={2} pb={2}>
-        <Grid item>
-          <Button {...coolBtnProps} variant="btnLink">
-            Terms of use
-          </Button>
-        </Grid>
-        <Grid item>
-          <Button {...coolBtnProps} variant="btnLink">
-            Privacy Policy
-          </Button>
-        </Grid>
-        <Grid item>
-          <Button {...coolBtnProps} variant="btnLink">
-            Browser operating environment
-          </Button>
-        </Grid>
-        <Grid item>
-          <Button {...coolBtnProps} variant="btnLink">
-            Inquiry
-          </Button>
+        <Grid item xs={9} lg={7}>
+          <Grid container spacing={1}>
+            <Grid item>
+              <IconButton
+                component={Link}
+                href="https://github.com/mikskywalker"
+                color="primary"
+                aria-label="github"
+              >
+                <GitHubIcon />
+              </IconButton>
+            </Grid>
+
+            <Grid item>
+              <IconButton
+                component={Link}
+                href="https://www.youtube.com/channel/UCPfm7j1Wm-S7hmUgk49nf8gr"
+                color="primary"
+                aria-label="youtube"
+              >
+                <YouTubeIcon />
+              </IconButton>
+            </Grid>
+
+          </Grid>
         </Grid>
       </Grid>
     </Box>
