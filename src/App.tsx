@@ -90,7 +90,7 @@ function ScrollTop(props: Props) {
   const trigger = useScrollTrigger({
     target: window,
     disableHysteresis: true,
-    threshold: 400,
+    threshold: 300,
   });
 
   const handleClick = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -110,7 +110,7 @@ function ScrollTop(props: Props) {
       <Box
         onClick={handleClick}
         role="presentation"
-        sx={{ position: "fixed", bottom: 16, right: 16 }}
+        sx={{ position: "fixed", bottom: 30, right: 16 }}
       >
         {children}
       </Box>
@@ -125,21 +125,18 @@ function App(props: Props) {
   const [toTopBtnColor, setToTopBtnColor] = useState<"black" | "white">(
     "black"
   );
-  const trigger = useScrollTrigger({
-    disableHysteresis: true,
-    threshold: 0,
-  });
 
   const handleScroll = () => {
     if (window.scrollY >= 0) {
-      setToTopBtnColor("black");
-    }
-    if (window.scrollY >= 710) {
       setToTopBtnColor("white");
     }
-    if (window.scrollY >= 1720) {
-      setToTopBtnColor("black");
-    }
+    // when page becomes longer, I can use this fancy color change logic
+    // if (window.scrollY >= 710) {
+    //   setToTopBtnColor("white");
+    // }
+    // if (window.scrollY >= 1720) {
+    //   setToTopBtnColor("black");
+    // }
   };
 
   window.addEventListener("scroll", handleScroll);
@@ -151,7 +148,7 @@ function App(props: Props) {
           display: "flex",
           flexDirection: "column",
           minHeight: "100vh",
-          background: 'black'
+          background: "black",
         }}
       >
         {/* This grid is an anchor for the back-to-top button */}
