@@ -191,9 +191,9 @@ export default function Nav() {
                 </MenuItem>
               </Menu>
             </Box>
-            <Icon sx={{ display: { xs: "flex", md: "none" } }} fontSize="large">
+            {/* <Icon sx={{ display: { xs: "flex", md: "none" } }} fontSize="large">
               <img src={DragonLogo} alt="Dragon Icon" />
-            </Icon>
+            </Icon> */}
             <Typography
               variant="h5"
               noWrap

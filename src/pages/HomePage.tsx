@@ -145,10 +145,6 @@ export default function HomePage() {
               in their career shift journey in tech (2 of them have already landed jobs ♥).
             </Typography>
           </Grid>
-
-        
-
-         
         </>
       )}
 
