@@ -25,6 +25,7 @@ export default function BigBtn(props: BigBtnTypes) {
       sx={{ textTransform: "none", border: "1px solid gray", height: '5rem' }}
       variant="contained"
       fullWidth
+      color="secondary"
     >
       <Grid container spacing={5} justifyContent="space-between" alignItems="center">
         <Grid item xs={9}>

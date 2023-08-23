@@ -7,6 +7,8 @@ import {
   MenuItem,
   Typography,
   useScrollTrigger,
+  Icon,
+  Grid,
 } from "@mui/material";
 import Button, { ButtonProps } from "@mui/material/Button";
 import React, { useState } from "react";
@@ -17,6 +19,8 @@ import { styled } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import MenuIcon from "@mui/icons-material/Menu";
 import MusicNoteIcon from "@mui/icons-material/MusicNote";
+import DragonLogo from "../assets/mikspics/icons8-dragon-32.png";
+
 import { purple } from "@mui/material/colors";
 
 // example of custom
@@ -79,20 +83,22 @@ export default function Nav() {
       >
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <MusicNoteIcon
+            <Icon
               sx={{
                 display: { xs: "none", md: "flex" },
-                mr: 1,
                 color: navMagicTexts,
               }}
-            />
+              fontSize="large"
+            >
+              <img src={DragonLogo} alt="Dragon Icon" />
+            </Icon>
             <Typography
               variant="h6"
               noWrap
               component="a"
               href="/"
               sx={{
-                mr: 2,
+                pr: 2,
                 display: { xs: "none", md: "flex" },
                 fontFamily: "monospace",
                 fontWeight: 700,
@@ -101,8 +107,38 @@ export default function Nav() {
                 color: navMagicTexts,
               }}
             >
-              M
+              .miks
             </Typography>
+
+            <Grid
+              container
+              justifyContent='end'
+              spacing={3}
+              sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
+            >
+              <Grid item>
+                <Link to="/">
+                  <Button
+                    sx={{ color: navMagicTexts }}
+                    onClick={handleCloseNavMenu}
+                    variant="btnLink"
+                  >
+                    Home
+                  </Button>
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link to="/contact">
+                  <Button
+                    sx={{ color: navMagicTexts }}
+                    onClick={handleCloseNavMenu}
+                    variant="btnLink"
+                  >
+                    Contact
+                  </Button>
+                </Link>
+              </Grid>
+            </Grid>
 
             <Box
               sx={{
@@ -141,37 +177,23 @@ export default function Nav() {
                 {/* Mobile view */}
                 <Link to="/" style={{ textDecoration: "none" }}>
                   <MenuItem onClick={handleCloseNavMenu}>
-                    <Typography color="primary" textAlign="center">
+                    <Typography color="secondary" textAlign="center">
                       Home
                     </Typography>
                   </MenuItem>
                 </Link>
                 <MenuItem onClick={handleCloseNavMenu}>
-                  <Link to="/blogs" style={{ textDecoration: "none" }}>
-                    <Typography color="primary" textAlign="center">
-                      Blog
-                    </Typography>
-                  </Link>
-                </MenuItem>
-                <MenuItem onClick={handleCloseNavMenu}>
                   <Link to="/contact" style={{ textDecoration: "none" }}>
-                    <Typography color="primary" textAlign="center">
+                    <Typography color="secondary" textAlign="center">
                       Contact
-                    </Typography>
-                  </Link>
-                </MenuItem>
-                <MenuItem onClick={handleCloseNavMenu}>
-                  <Link to="/learn" style={{ textDecoration: "none" }}>
-                    <Typography color="primary" textAlign="center">
-                      Learn
                     </Typography>
                   </Link>
                 </MenuItem>
               </Menu>
             </Box>
-            <MusicNoteIcon
-              sx={{ display: { xs: "flex", md: "none" }, mr: 1 }}
-            />
+            <Icon sx={{ display: { xs: "flex", md: "none" } }} fontSize="large">
+              <img src={DragonLogo} alt="Dragon Icon" />
+            </Icon>
             <Typography
               variant="h5"
               noWrap
@@ -188,7 +210,7 @@ export default function Nav() {
                 textDecoration: "none",
               }}
             >
-              M
+              .miks
             </Typography>
 
             {/* Web view */}
@@ -197,24 +219,36 @@ export default function Nav() {
                 flexGrow: 1,
                 display: { xs: "none", md: "flex" },
                 color: navMagicTexts,
-                // bgcolor:"white"
               }}
-            >
-             
-            </Box>
+            ></Box>
 
-            <Box sx={{ flexGrow: 0 }}>
-              <Link to="/contact">
-                <Button
-                  sx={{ color: navMagicTexts }}
-                  onClick={handleCloseNavMenu}
-                  variant="btnLink"
-                >
-                  Contact
-                </Button>
-              </Link>
-           
-            </Box>
+            {/* <Box  sx={{flexGrow: 0}}>
+            <Grid container spacing={3} justifyContent="end" >
+              <Grid item >
+                <Link to="/">
+                  <Button
+                    sx={{ color: navMagicTexts }}
+                    onClick={handleCloseNavMenu}
+                    variant="btnLink"
+                  >
+                    Home
+                  </Button>
+                </Link>
+              </Grid>
+              <Grid item>
+                <Link to="/contact">
+                  <Button
+                    sx={{ color: navMagicTexts }}
+                    onClick={handleCloseNavMenu}
+                    variant="btnLink"
+                  >
+                    Contact
+                  </Button>
+                </Link>
+              </Grid>
+            </Grid>
+
+</Box> */}
           </Toolbar>
         </Container>
       </AppBar>
