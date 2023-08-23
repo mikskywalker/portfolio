@@ -16,7 +16,7 @@ export default function MiksImageList() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // 2000 milliseconds = 2 seconds
+    }, 1500); // 1.5 seconds
 
     return () => {
       clearTimeout(timer); // Clear the timeout if the component unmounts
@@ -59,6 +59,7 @@ export default function MiksImageList() {
     </Box>
   );
 }
+// TODO: figure out how to better implement the imagelist on small screens
 
 const itemData = [
   {
