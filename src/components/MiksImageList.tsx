@@ -8,10 +8,12 @@ import myImage5 from '../assets/mikspics/5.jpg';
 import myImage6 from '../assets/mikspics/6.jpg';
 import myImage8 from '../assets/mikspics/8.jpg';
 import myImage9 from '../assets/mikspics/9.jpg';
-import { Fade, Grid, Skeleton } from '@mui/material';
+import { Fade, Grid, Skeleton, useMediaQuery, useTheme   } from '@mui/material';
 
 export default function MiksImageList() {
   const [loading, setLoading] = useState<boolean>(true)
+  const theme = useTheme();
+  const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -40,10 +42,10 @@ export default function MiksImageList() {
           ))}
         </Grid>
       ) : (
-        <ImageList variant="masonry" cols={3} gap={12} sx={{ minWidth: 200, minHeight: 200 }}>
+        <ImageList variant="masonry" cols={isSmallScreen ? 2 : 3} gap={12} sx={{ minWidth: 200, minHeight: 200 }}>
           {itemData.map((item, index) => (
-            <Fade in style={{ transitionDelay: `${index * 100}ms` }}>
-              <ImageListItem key={item.img}>
+            <Fade key={index} in style={{ transitionDelay: `${index * 100}ms` }}>
+              <ImageListItem >
                 <img
                   src={`${item.img}?w=248&fit=crop&auto=format`}
                   srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
