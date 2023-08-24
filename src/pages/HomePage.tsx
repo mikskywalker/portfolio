@@ -1,9 +1,13 @@
-import { Button, Grid, Typography, Tabs, Tab, Icon, Chip } from "@mui/material";
+import { Button, Grid, Typography, Tabs, Tab, Link, } from "@mui/material";
 import React from "react";
 import MiksImageList from "../components/MiksImageList";
 import BigBtn from "../components/BigBtn";
-import SmudgeLogo from "../assets/mikspics/Screenshot 2023-08-23 194608.png";
 import TechStack from "../components/TechStackIconList";
+import SmudgeLogo from "../assets/mikspics/Screenshot 2023-08-23 194608.png";
+import SplineLogo from "../assets/mikspics/spline3d.png";
+import PsyduckLogo from "../assets/mikspics/icons8-psyduck-24.png"
+import CallMadeIcon from '@mui/icons-material/CallMade';
+import CoolBadge from "../components/CoolBadge";
 
 export default function HomePage() {
   const [tabValue, setTabValue] = React.useState("tech");
@@ -12,14 +16,20 @@ export default function HomePage() {
     setTabValue(newValue);
   };
 
+  const coolBtnProps = {
+    disableRipple: true,
+    disableFocusRipple: true,
+    disableTouchRipple: true,
+  };
+
   return (
     <Grid
       container
       justifyContent="center"
       sx={{
-        background: "black",
+        // background: "#111010",
         height: "100%",
-        marginTop: "3rem",
+        marginTop: "1.5rem",
         marginBottom: "5rem",
       }}
     >
@@ -30,57 +40,7 @@ export default function HomePage() {
           spacing={3}
           justifyContent="center"
         >
-          <Grid item xs={9} lg={7}>
-            <Typography variant="h5" color="white" fontWeight="bold">
-              hey, I'm Miks 👋
-            </Typography>
-          </Grid>
-          <Grid item xs={9} lg={7}>
-            <Grid container direction="row">
-              <Grid item>
-                <Typography variant="body1" color="lightgray">
-                  I'm a frontend developer, a musician, and a mentor. I
-                  currently work as a Software Engineer at &nbsp;
-                  <Chip
-                    avatar={
-                      <img
-                        src={SmudgeLogo}
-                        alt="Your Icon"
-                        style={{
-                          borderRadius: 100,
-                          width: "20px",
-                          height: "20px",
-                        }}
-                      />
-                    }
-                    label="Smudge"
-                    sx={{
-                      background: "#1A1A1A",
-                      color: "lightgray",
-                      border: "1px solid lightgrey",
-                      borderRadius: "5px",
-                    }}
-                  />
-                  , where I build web applications for an array of projects and
-                  clients like CONA Services under the legendary The Coca-cola
-                  Company.
-                </Typography>
-              </Grid>
-              <Grid item>
-                <Typography
-                  variant="h4"
-                  color="#0BD99E"
-                  textAlign="center"
-                ></Typography>
-              </Grid>
-            </Grid>
-          </Grid>
-
-          <Grid item xs={9} lg={7}>
-            <MiksImageList />
-          </Grid>
-
-          <Grid item xs={9} lg={7}>
+          <Grid item xs={10} lg={7}>
             <Grid container>
               <Tabs
                 value={tabValue}
@@ -112,44 +72,119 @@ export default function HomePage() {
             </Grid>
           </Grid>
 
+          <Grid item xs={10} lg={7}>
+            <Typography variant="h5" pt={3} color="white" fontWeight="bold">
+              hey, I'm Miks 👋
+            </Typography>
+          </Grid>
+          <Grid item xs={10} lg={7}>
+            <Grid container direction="row">
+              <Grid item>
+                <Typography variant="body1" color="lightgray">
+                  I'm a frontend developer, a musician, and a mentor. I
+                  currently work as a Software Engineer at &nbsp;
+                  <CoolBadge image={SmudgeLogo} title="Smudge" />
+                  , where I build web applications for an array of projects and
+                  clients like CONA Services under the legendary, The Coca-cola
+                  Company.
+                </Typography>
+              </Grid>
+
+              <Grid item>
+                <Typography
+                  variant="h4"
+                  color="#0BD99E"
+                  textAlign="center"
+                ></Typography>
+              </Grid>
+            </Grid>
+          </Grid>
+
+          <Grid item xs={10} lg={7}>
+            <MiksImageList />
+          </Grid>
+
           {tabValue === "tech" && (
             <>
-              <Grid item xs={9} lg={7}>
-                <Typography variant="h6" color="lightgray" gutterBottom>
+              <Grid item xs={10} lg={7}>
+                <Typography
+                  variant="body1"
+                  fontWeight="bold"
+                  color="lightgray"
+                  gutterBottom
+                >
                   The technologies I use includes
                 </Typography>
                 <TechStack />
               </Grid>
 
-              <Grid item xs={9} lg={7}>
+              <Grid item xs={10} lg={7}>
                 <Typography variant="body1" color="lightgray">
                   Over the past few years, I've dedicated my efforts to building
-                  web applications for various industries like logistics at
-                  Entrego, bottling at Coke CONA, and merchandising industry at
-                  UrStore while greatly improving my skills along the way.
+                  web applications for various industries like logistics
+                  at&nbsp;
+                  <strong>Entrego</strong>, bottling at&nbsp;
+                  <strong>Coke CONA</strong>, and merchandising industry
+                  at&nbsp;
+                  <strong>UrStore</strong> while greatly improving my skills
+                  along the way.
                 </Typography>
               </Grid>
 
-              <Grid item xs={9} lg={7}>
-                <Grid container spacing={1}>
-                  <Grid item xs>
-                    <BigBtn title="Entrego" noEndIcon />
-                  </Grid>
-                  <Grid item xs>
-                    <BigBtn title="CONA" noEndIcon />
-                  </Grid>
-                  <Grid item xs>
-                    <BigBtn title="UrStore" noEndIcon />
-                  </Grid>
-                </Grid>
+              <Grid item xs={10} lg={7}>
+                <Typography
+                  variant="body1"
+                  color="lightgray"
+                  // style={{ display: "inline-block" }}
+                  style={{
+                    display: "inline-block",
+                    alignItems: "center", // Add this line for vertical alignment
+                  }}
+                >
+                  On my free time, I like trying out different technologies like
+                  building 3 web scenes, or learning machine learning. Here's a
+                  3D scene with Psyduck and another pokemon I made using &nbsp;
+                  <CoolBadge image={SplineLogo} title="Spline" />.
+                </Typography>
               </Grid>
 
-              <Grid item xs={9} lg={7}>
+              <Grid item xs={10} lg={7}>
+                <Button
+                  {...coolBtnProps}
+                  variant="contained"
+                  color="secondary"
+                  component={Link}
+                  rel="noopener"
+                  target="_blank"
+                  href="https://mikskywalker.github.io/psyduckshouse"
+                  startIcon={<img src={PsyduckLogo} width="50px" />}
+                  endIcon={<CallMadeIcon />}
+                  sx={{
+                    textTransform: "none",
+                    border: "1px solid gray",
+                    height: "5rem",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Psyduck's House
+                </Button>
+              </Grid>
+
+              <Grid item xs={10} lg={7}>
                 <Typography variant="body1" color="lightgray">
-                  Beyond coding, I actively perform with my string quartet, and
-                  help a community I built made up of friends and peers in their
-                  career shift journey in tech (2 of them have already landed
-                  jobs ♥).
+                  Lately, I've also been thinking about getting into augmented
+                  reality and virtual reality. It's something I'm looking
+                  forward to learning more about soon!
+                </Typography>
+              </Grid>
+
+              <Grid item xs={10} lg={7}>
+                <Typography variant="body1" color="lightgray">
+                  Beyond coding, I actively perform with my string quartet or
+                  other music friends, and help a community I built made up of
+                  friends and peers in their career shift journey in tech (2 of
+                  them have already landed jobs ♥) You can check out my music
+                  activities by clicking the music tab above.
                 </Typography>
               </Grid>
             </>
