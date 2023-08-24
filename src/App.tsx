@@ -148,7 +148,7 @@ function App(props: Props) {
           display: "flex",
           flexDirection: "column",
           minHeight: "100vh",
-          background: "black",
+          background: "#111010",
         }}
       >
         {/* This grid is an anchor for the back-to-top button */}
