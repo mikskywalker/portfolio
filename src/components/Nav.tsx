@@ -78,7 +78,11 @@ export default function Nav() {
     <>
       <AppBar
         position="sticky"
-        sx={{ backgroundColor: "transparent", color: navMagicTexts }}
+        sx={{ color: navMagicTexts,
+        backgroundColor:  'rgba(17, 16, 16, 0.7)', // Set the background color with transparency
+        
+        boxShadow: 'none', // Remove the default shadow
+      }}
         elevation={trigger ? 0 : 0}
       >
         <Container maxWidth="xl">
@@ -87,6 +91,7 @@ export default function Nav() {
               sx={{
                 display: { xs: "none", md: "flex" },
                 color: navMagicTexts,
+               
               }}
               fontSize="large"
             >
@@ -112,7 +117,7 @@ export default function Nav() {
 
             <Grid
               container
-              justifyContent='end'
+              justifyContent="end"
               spacing={3}
               sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
             >
@@ -191,7 +196,9 @@ export default function Nav() {
                 </MenuItem>
               </Menu>
             </Box>
-            {/* <Icon sx={{ display: { xs: "flex", md: "none" } }} fontSize="large">
+            {/* 
+            undecided if I want to use this instead, but for now ill just display my name
+            <Icon sx={{ display: { xs: "flex", md: "none" } }} fontSize="large">
               <img src={DragonLogo} alt="Dragon Icon" />
             </Icon> */}
             <Typography
@@ -221,34 +228,6 @@ export default function Nav() {
                 color: navMagicTexts,
               }}
             ></Box>
-
-            {/* <Box  sx={{flexGrow: 0}}>
-            <Grid container spacing={3} justifyContent="end" >
-              <Grid item >
-                <Link to="/">
-                  <Button
-                    sx={{ color: navMagicTexts }}
-                    onClick={handleCloseNavMenu}
-                    variant="btnLink"
-                  >
-                    Home
-                  </Button>
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link to="/contact">
-                  <Button
-                    sx={{ color: navMagicTexts }}
-                    onClick={handleCloseNavMenu}
-                    variant="btnLink"
-                  >
-                    Contact
-                  </Button>
-                </Link>
-              </Grid>
-            </Grid>
-
-</Box> */}
           </Toolbar>
         </Container>
       </AppBar>

@@ -68,6 +68,7 @@ const itemData = [
     img: `${myImage5}`,
     title: 'Played for a company event',
   },
+  
   {
     img: `${myImage2}`,
     title: 'Performing on stage with a band',
@@ -77,13 +78,14 @@ const itemData = [
     title: 'Performing on stage with my string quartet',
   },
   {
-    img: `${myImage6}`,
-    title: 'After playing for a church anniversarry',
-  },
-  {
     img: `${myImage8}`,
     title: 'Performing live at a wake',
   },
+  {
+    img: `${myImage6}`,
+    title: 'After playing for a church anniversarry',
+  },
+
   {
     img: `${myImage9}`,
     title: 'With my string quartet in front of a giant Pipe Organ',

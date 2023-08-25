@@ -5,20 +5,24 @@ import { Link } from "@mui/material";
 
 interface BadgeTypes {
     image: string,
-    title: string
+    title: string,
+    url: string
 }
 
 
 export default function CoolBadge(props: BadgeTypes) {
     return (
         <Link
+        href={props.url}
+        target="_blank"
+        rel="noopener"
         sx={{
           width: "auto",
           display: "inline-flex",
           alignItems: 'center',
           background: "#1A1A1A",
           color: "lightgray",
-          border: "1px solid lightgrey",
+          border: "1px solid gray",
           borderRadius: "5px",
           verticalAlign: "middle",
           px: 1

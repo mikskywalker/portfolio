@@ -40,7 +40,7 @@ const logos = [
       <Grid container spacing={1} sx={{ fontSize: "2rem" }}>
         {logos.map((logo, index) => (
           <Grid item key={index}>
-            <Fade in style={{transitionDelay: `${index * 200}ms`}}>
+            <Fade in style={{transitionDelay: `${index * 300}ms`}}>
               <Icon  component={logo} fontSize="inherit" />
             </Fade>
           </Grid>
