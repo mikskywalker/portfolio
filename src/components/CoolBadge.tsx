@@ -22,10 +22,13 @@ export default function CoolBadge(props: BadgeTypes) {
           alignItems: 'center',
           background: "#1A1A1A",
           color: "lightgray",
-          border: "1px solid gray",
+          border: "1px solid #404040",
           borderRadius: "5px",
           verticalAlign: "middle",
-          px: 1
+          px: 1,
+          // pt: .3
+          
+
         }}
         underline="none"
       >

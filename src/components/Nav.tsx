@@ -103,7 +103,7 @@ export default function Nav() {
               component="a"
               href="/"
               sx={{
-                pr: 2,
+                mr: 3,
                 display: { xs: "none", md: "flex" },
                 fontFamily: "monospace",
                 fontWeight: 700,
@@ -112,7 +112,7 @@ export default function Nav() {
                 color: navMagicTexts,
               }}
             >
-              .miks
+              miks
             </Typography>
 
             <Grid
@@ -207,7 +207,7 @@ export default function Nav() {
               component="a"
               href="/"
               sx={{
-                mr: 2,
+                mr: 3,
                 display: { xs: "flex", md: "none" },
                 flexGrow: 1,
                 fontFamily: "monospace",
@@ -217,7 +217,7 @@ export default function Nav() {
                 textDecoration: "none",
               }}
             >
-              .miks
+              miks
             </Typography>
 
             {/* Web view */}

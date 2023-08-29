@@ -7,6 +7,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import CallMadeIcon from '@mui/icons-material/CallMade';
+import { themes } from "../App";
 
 
 export default function Footer() {
@@ -23,7 +24,7 @@ export default function Footer() {
         <Grid item xs={12} md={8}>
           <Grid container justifyContent="center" spacing={3}>
             <Grid item xs={10} lg={7}>
-              <Grid container spacing={1} color="gray">
+              <Grid container spacing={1}  color={themes.palette.primary.main}>
                 <Grid item xs={12} md="auto">
                   <Button
                     {...coolBtnProps}

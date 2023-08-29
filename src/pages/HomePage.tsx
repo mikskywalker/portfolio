@@ -1,17 +1,14 @@
 import {
-  Button,
   Grid,
   Typography,
   Tabs,
   Tab,
   Link,
-  Badge,
-  Icon,
-  Stack,
+  Skeleton,
+  Divider,
 } from "@mui/material";
 import React, { useState } from "react";
 import MiksImageList from "../components/MiksImageList";
-import BigBtn from "../components/BigBtn";
 import TechStack from "../components/TechStackIconList";
 import SmudgeLogo from "../assets/mikspics/Screenshot 2023-08-23 194608.png";
 import SplineLogo from "../assets/mikspics/spline3d.png";
@@ -19,25 +16,22 @@ import PsyduckLogo from "../assets/mikspics/icons8-psyduck-24.png";
 import LeviLogo from "../assets/mikspics/levi.jpg";
 import CallMadeIcon from "@mui/icons-material/CallMade";
 import CoolBadge from "../components/CoolBadge";
-import MiksDP from "../assets/mikspics/miksdp.jpg";
-import { ReactComponent as SpotifyIcon } from "../assets/mikspics/icons8-spotify.svg";
-import { ReactComponent as YoutubeIconColored } from "../assets/mikspics/icons8-youtube.svg";
 import SpotifyEmbed from "../components/SpotifyEmbbed";
 import YouTubeEmbed from "../components/YTEmbbed";
-import Spline from '@splinetool/react-spline';
+import Spline from "@splinetool/react-spline";
+// import { red, teal } from "@mui/material/colors";
 
 export default function HomePage() {
   const [tabValue, setTabValue] = React.useState("tech");
-  const [pageStillLoading, setPageStillLoading] = useState<Boolean>(true)
+  const [pageStillLoading, setPageStillLoading] = useState<Boolean>(true);
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setTabValue(newValue);
   };
-
-  const coolBtnProps = {
-    disableRipple: true,
-    disableFocusRipple: true,
-    disableTouchRipple: true,
-  };
+  /** 
+     I can also do custom colors lke this using mui colors
+      const divColor = teal['A100']
+   * 
+   */
 
   return (
     <Grid
@@ -61,27 +55,32 @@ export default function HomePage() {
               <Tabs
                 value={tabValue}
                 onChange={handleTabChange}
-                indicatorColor="secondary"
+                // indicatorColor="secondary"
+                TabIndicatorProps={{
+                  style: {
+                    backgroundColor: '#0BD99E',
+                  },
+                }}
                 aria-label="tabs for tech or music"
               >
                 <Tab
                   value="tech"
-                  label="tech"
+                  label={<Typography >tech</Typography>}
                   disableRipple
                   sx={{
-                    color: tabValue === "tech" ? "#FFFFFF" : "lightgray",
+                    color: tabValue === "tech" ? "#FFFFFF" : "#D4D4C8",
                     textTransform: "none",
-                    fontSize: "large",
+                    // fontSize: "large",
                   }}
                 />
                 <Tab
                   value="music"
-                  label="music"
+                  label={<Typography >music</Typography>}
                   disableRipple
                   sx={{
-                    color: tabValue === "music" ? "#FFFFFF" : "lightgray",
+                    color: tabValue === "music" ? "#FFFFFF" : "#D4D4C8",
                     textTransform: "none",
-                    fontSize: "large",
+                    // fontSize: "large",
                   }}
                 />
               </Tabs>
@@ -99,7 +98,7 @@ export default function HomePage() {
               <Grid item xs={10} lg={7}>
                 <Grid container direction="row">
                   <Grid item>
-                    <Typography variant="body1" color="lightgray">
+                    <Typography variant="body1" color="primary">
                       I'm a frontend developer, a musician, and a mentor. I
                       currently work as a Software Engineer at &nbsp;
                       <CoolBadge
@@ -112,42 +111,29 @@ export default function HomePage() {
                       Coca-cola Company.
                     </Typography>
                   </Grid>
-
-                  <Grid item>
-                    <Typography
-                      variant="h4"
-                      color="#0BD99E"
-                      textAlign="center"
-                    ></Typography>
-                  </Grid>
                 </Grid>
               </Grid>
-
-              <Grid item xs={10} lg={8}>
+              <Grid item xs={10} lg={7}>
+                {pageStillLoading && (
+                  <Skeleton
+                    variant="rectangular"
+                    width="100%"
+                    sx={{ bgcolor: "grey.900" }}
+                    height="30rem"
+                  />
+                )}
                 <Spline
                   style={{
-                    height: "38rem",
+                    height: "30rem",
                     width: "100%",
-                    
                   }}
                   scene="https://prod.spline.design/kw9QJMHVJAQjR7Kh/scene.splinecode"
+                  onLoad={() => setPageStillLoading(false)}
                 />
               </Grid>
 
               <Grid item xs={10} lg={7}>
-                <Typography
-                  variant="body1"
-                  fontWeight="bold"
-                  color="lightgray"
-                  gutterBottom
-                >
-                  The technologies I use includes
-                </Typography>
-                <TechStack />
-              </Grid>
-
-              <Grid item xs={10} lg={7}>
-                <Typography variant="body1" color="lightgray">
+                <Typography variant="body1" color="primary">
                   Over the past years, I've dedicated my efforts to building web
                   applications for various industries like logistics at&nbsp;
                   <strong>Entrego</strong>, bottling at&nbsp;
@@ -159,16 +145,59 @@ export default function HomePage() {
               </Grid>
 
               <Grid item xs={10} lg={7}>
-                <Typography variant="body1" color="lightgray">
+                <Typography variant="body1" color="primary">
                   In 2020 during the pandemic, I created an online violin studio
                   where I teach adult beginners and build its web application.
                 </Typography>
               </Grid>
 
               <Grid item xs={10} lg={7}>
+                <Link
+                  variant="body1"
+                  underline="none"
+                  rel="noopener"
+                  target="_blank"
+                  href="https://www.facebook.com/learnviolinofficial"
+                >
+                  <Grid
+                    container
+                    spacing={1}
+                    justifyContent="space-between"
+                    alignItems="center"
+                    sx={{
+                      // background: themes.palette.secondary.main,
+                      background: "#262626",
+                      height: "5rem",
+                      border: "1px solid #404040",
+                      borderRadius: 1,
+                      textTransform: "none",
+                      fontWeight: "bold",
+                      color: "lightgray",
+                    }}
+                  >
+                    <Grid item>
+                      <Grid container spacing={1} alignItems="center" pl={1}>
+                        <Grid item>
+                          <img
+                            src={LeviLogo}
+                            width="50px"
+                            style={{ borderRadius: 50 }}
+                          />
+                        </Grid>
+                        <Grid item>Learn Violin</Grid>
+                      </Grid>
+                    </Grid>
+                    <Grid item pr={1}>
+                      <CallMadeIcon />
+                    </Grid>
+                  </Grid>
+                </Link>
+              </Grid>
+
+              <Grid item xs={10} lg={7}>
                 <Typography
                   variant="body1"
-                  color="lightgray"
+                  color="primary"
                   style={{
                     display: "inline-block",
                     alignItems: "center", // Add this line for vertical alignment
@@ -187,36 +216,7 @@ export default function HomePage() {
               </Grid>
 
               <Grid item xs={10} lg={7}>
-                <Grid container spacing={3}>
-                  <Grid item>
-                    <Button
-                      {...coolBtnProps}
-                      variant="contained"
-                      color="secondary"
-                      component={Link}
-                      rel="noopener"
-                      target="_blank"
-                      href="https://www.facebook.com/learnviolinofficial"
-                      startIcon={
-                        <img
-                          src={LeviLogo}
-                          width="50px"
-                          style={{ borderRadius: 100 }}
-                        />
-                      }
-                      endIcon={<CallMadeIcon />}
-                      sx={{
-                        textTransform: "none",
-                        border: "1px solid gray",
-                        height: "5rem",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      Learn Violin
-                    </Button>
-                  </Grid>
-                  <Grid item>
-                    <Button
+                {/* <Button
                       {...coolBtnProps}
                       variant="contained"
                       color="secondary"
@@ -228,24 +228,75 @@ export default function HomePage() {
                       endIcon={<CallMadeIcon />}
                       sx={{
                         textTransform: "none",
-                        border: "1px solid gray",
+                        border: "1px solid #404040",
                         height: "5rem",
                         fontWeight: "bold",
                       }}
                     >
                       Psyduck's House
-                    </Button>
+                    </Button> */}
+
+                <Link
+                  variant="body1"
+                  underline="none"
+                  rel="noopener"
+                  target="_blank"
+                  href="https://mikskywalker.github.io/psyduckshouse"
+                >
+                  <Grid
+                    container
+                    spacing={1}
+                    justifyContent="space-between"
+                    alignItems="center"
+                    sx={{
+                      // background: themes.palette.secondary.main,
+                      background: "#262626",
+                      height: "5rem",
+                      border: "1px solid #404040",
+                      borderRadius: 1,
+                      textTransform: "none",
+                      fontWeight: "bold",
+                      color: "lightgray",
+                    }}
+                  >
+                    <Grid item>
+                      <Grid container spacing={1} alignItems="center" pl={1}>
+                        <Grid item>
+                          <img
+                            src={PsyduckLogo}
+                            width="50px"
+                            style={{ borderRadius: 50 }}
+                          />
+                        </Grid>
+                        <Grid item> Psyduck's House</Grid>
+                      </Grid>
+                    </Grid>
+                    <Grid item pr={1}>
+                      <CallMadeIcon />
+                    </Grid>
                   </Grid>
-                </Grid>
+                </Link>
               </Grid>
 
               <Grid item xs={10} lg={7}>
-                <Typography variant="body1" color="lightgray">
+                <Typography variant="body1" color="primary">
                   Beyond coding, I actively perform with my string quartet or
                   other music friends, and help a community I built made up of
                   friends and peers in their career shift journey in tech (2 of
                   them have already landed jobs this year ♥)
                 </Typography>
+              </Grid>
+
+              <Grid item xs={10} lg={7}>
+                <Typography
+                  variant="h6"
+                  fontWeight="bold"
+                  color="primary"
+                  gutterBottom
+                >
+                  The <span color="#0BD99E">technologies</span> I use includes
+                </Typography>
+                <TechStack />
               </Grid>
             </>
           )}
@@ -253,7 +304,7 @@ export default function HomePage() {
           {tabValue === "music" && (
             <>
               <Grid item xs={10} lg={7}>
-                <Typography variant="body1" color="lightgray">
+                <Typography variant="body1" color="primary">
                   I create covers for various genres such as
                   <strong> anime</strong>, <strong>korean drama</strong>,
                   <strong> video game music</strong>, and many more. (My
@@ -266,7 +317,7 @@ export default function HomePage() {
               </Grid>
 
               <Grid item xs={10} lg={7}>
-                <Typography variant="body1" color="lightgray" pb={1}>
+                <Typography variant="body1" color="primary" pb={1}>
                   Here are some of my favorite covers:
                 </Typography>
                 <Grid container justifyContent="center" spacing={3} pt={1}>
@@ -296,72 +347,8 @@ export default function HomePage() {
                 </Grid>
               </Grid>
 
-              {/* <Grid item xs={10} lg={7}>
-                <Grid container spacing={2}>
-                  <Grid item xs={12} md={12}>
-                    <Button
-                      {...coolBtnProps}
-                      fullWidth
-                      variant="contained"
-                      color="secondary"
-                      component={Link}
-                      rel="noopener"
-                      target="_blank"
-                      href="https://mikskywalker.github.io/psyduckshouse"
-                      startIcon={
-                        <Badge
-                          overlap="circular"
-                          badgeContent={
-                            <Icon
-                              component={YoutubeIconColored}
-                              sx={{
-                                p: 0.5,
-                                width: 15,
-                                height: 15,
-                                borderRadius: "50%",
-                                backgroundColor: "primary.main",
-                                color: "white",
-                              }}
-                            />
-                          }
-                          anchorOrigin={{
-                            vertical: "bottom",
-                            horizontal: "right",
-                          }}
-                        >
-                          <img
-                            src={MiksDP}
-                            alt="MiksDP"
-                            width="60rem"
-                            height="60rem"
-                            style={{
-                              borderRadius: "50%",
-                              border: "1px solid lightgray",
-                            }}
-                          />
-                        </Badge>
-                      }
-                      endIcon={<CallMadeIcon />}
-                      sx={{
-                        textTransform: "none",
-                        border: "1px solid gray",
-                        height: "7rem",
-                        fontWeight: "bold",
-                      }}
-                    >
-                      <Stack pl={1}>
-                        <Typography fontWeight="bold">@mikscasal</Typography>
-                        <Typography color="lightgray">
-                          1.37K subscribers
-                        </Typography>
-                      </Stack>
-                    </Button>
-                  </Grid>
-                </Grid>
-              </Grid> */}
-
               <Grid item xs={10} lg={7}>
-                <Typography variant="body1" color="lightgray">
+                <Typography variant="body1" color="primary">
                   I was a violinist at the Manila Symphony Orchestra before and
                   in 2013 I joined a string quartet called the Manila String
                   Machine and we've been actively performing for different
@@ -395,7 +382,7 @@ export default function HomePage() {
               </Grid>
 
               <Grid item xs={10} lg={7}>
-                <Typography variant="body1" color="lightgray" pb={1}>
+                <Typography variant="body1" color="primary" pb={1}>
                   and this random recording of us playing Nandemonaiya from Kimi
                   no Nawa (Your Name) after playing for a wedding.
                 </Typography>
@@ -413,7 +400,7 @@ export default function HomePage() {
               </Grid>
 
               <Grid item xs={10} lg={7}>
-                <Typography variant="body1" color="lightgray">
+                <Typography variant="body1" color="primary">
                   Aside from performing and teaching, I also have some
                   compositions which you can find on all major steaming
                   platforms like Spotify. I'm particularly fond of fantasy or

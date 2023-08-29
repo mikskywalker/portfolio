@@ -31,7 +31,7 @@ declare module "@mui/material/Button" {
   }
 }
 
-const theme = createTheme({
+export const themes = createTheme({
   components: {
     // creating new button variants
     MuiButton: {
@@ -54,7 +54,7 @@ const theme = createTheme({
               left: 0,
               width: "0%",
               height: "2px",
-              background: "#0BD99E",
+              background: "#0BD99E", // the teal color
               transition: "width .3s",
             },
             "&:hover:after": {
@@ -64,13 +64,22 @@ const theme = createTheme({
         },
       ],
     },
+    MuiTypography: {
+      defaultProps: {
+        variant: 'body1', // Set the default variant for Typography
+        lineHeight: 2, // Adjust line height
+        // Add more default styles as needed
+      },
+    }
   },
   palette: {
     primary: {
-      main: '#FFFFFF',
+      // main: '#FFFFFF',
+      main: '#D4D4C8',
     },
     secondary: {
-      main: grey[900]
+      dark: grey[900],
+      main: '#262626'
     }
   },
 });
@@ -142,7 +151,7 @@ function App(props: Props) {
   window.addEventListener("scroll", handleScroll);
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={themes}>
       <Box
         sx={{
           display: "flex",
