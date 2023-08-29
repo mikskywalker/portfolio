@@ -37,7 +37,7 @@ const logos = [
 ]
 //  transitionDelay: `${index * 50}ms` delays the preview of each icon :P
     return (
-      <Grid container spacing={1} sx={{ fontSize: "6rem" }}>
+      <Grid container spacing={1} sx={{ fontSize: "4rem" }}>
         {logos.map((logo, index) => (
           <Grid item key={index}>
             <Fade in style={{transitionDelay: `${index * 300}ms`}}>
