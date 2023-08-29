@@ -15,7 +15,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NoPage from "./pages/NoPage";
 import HomePage from "./pages/HomePage";
 import Contact from "./pages/Contact";
-import { blue, grey, red } from "@mui/material/colors";
+import { grey, deepPurple } from "@mui/material/colors";
 import Footer from "./components/Footer";
 
 // icons
@@ -31,14 +31,19 @@ declare module "@mui/material/Button" {
   }
 }
 
+// const customColorTeal = "#0BD99E";
+ const customWhiteText = '#D4D4C8'
+
 export const themes = createTheme({
   components: {
-    // creating new button variants
     MuiButton: {
+      defaultProps: {
+        color: 'inherit'
+      },
       variants: [
         {
           props: {
-            variant: "btnLink",
+            variant: "btnLink", // custom button variant
           },
           style: {
             textTransform: "none",
@@ -54,7 +59,8 @@ export const themes = createTheme({
               left: 0,
               width: "0%",
               height: "2px",
-              background: "#0BD99E", // the teal color
+              // background: customColorTeal, // the teal color
+              background: deepPurple[500], // the primary
               transition: "width .3s",
             },
             "&:hover:after": {
@@ -68,18 +74,24 @@ export const themes = createTheme({
       defaultProps: {
         variant: 'body1', // Set the default variant for Typography
         lineHeight: 2, // Adjust line height
+        color: customWhiteText
         // Add more default styles as needed
       },
     }
   },
   palette: {
     primary: {
-      // main: '#FFFFFF',
-      main: '#D4D4C8',
+      light: deepPurple[300],
+      main: deepPurple[500],
+      dark: deepPurple[900],
+      contrastText: '#fff',
     },
     secondary: {
-      dark: grey[900],
-      main: '#262626'
+      // main: '#262626',
+      light: grey.A400,
+      main: grey[400],
+      dark: grey[800],
+      contrastText: customWhiteText,
     }
   },
 });
@@ -139,7 +151,6 @@ function App(props: Props) {
     if (window.scrollY >= 0) {
       setToTopBtnColor("white");
     }
-    // when page becomes longer, I can use this fancy color change logic
     // if (window.scrollY >= 710) {
     //   setToTopBtnColor("white");
     // }
