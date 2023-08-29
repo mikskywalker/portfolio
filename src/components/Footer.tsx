@@ -23,16 +23,18 @@ export default function Footer() {
         <Grid item xs={12} md={8}>
           <Grid container justifyContent="center" spacing={3}>
             <Grid item xs={10} lg={7}>
-              <Grid container spacing={1} color="white">
+              <Grid container spacing={1} color="gray">
                 <Grid item xs={12} md="auto">
                   <Button
                     {...coolBtnProps}
                     variant="text"
                     component={Link}
+                    target="_blank"
                     href="https://twitter.com/mikscasal"
                     startIcon={<TwitterIcon />}
                     endIcon={<CallMadeIcon />}
                     sx={{ textTransform: "none" }}
+                    color='inherit'
                   >
                     Follow me on twitter
                   </Button>
@@ -42,11 +44,13 @@ export default function Footer() {
                   <Button
                     {...coolBtnProps}
                     component={Link}
+                    target="_blank"
                     href="https://www.linkedin.com/in/mikscasal/"
                     variant="text"
                     startIcon={<LinkedInIcon sx={{ color: "#0077B5" }} />}
                     endIcon={<CallMadeIcon />}
                     sx={{ textTransform: "none" }}
+                    color='inherit'
                   >
                     Let's connect on LinkedIn
                   </Button>
@@ -56,12 +60,14 @@ export default function Footer() {
                   <Button
                     {...coolBtnProps}
                     component={Link}
+                    target="_blank"
                     href="https://github.com/mikskywalker"
-                    color="primary"
+                    color="inherit"
                     aria-label="github"
                     startIcon={<GitHubIcon />}
                     endIcon={<CallMadeIcon />}
                     sx={{ textTransform: "none" }}
+
                   >
                     Github
                   </Button>
@@ -71,12 +77,14 @@ export default function Footer() {
                   <Button
                     {...coolBtnProps}
                     component={Link}
+                    target="_blank"
                     href="https://youtube.com/@MiksCasal"
-                    color="primary"
+                    color="inherit"
                     aria-label="youtube"
                     startIcon={<YouTubeIcon />}
                     endIcon={<CallMadeIcon />}
                     sx={{ textTransform: "none" }}
+               
                   >
                     Youtube
                   </Button>

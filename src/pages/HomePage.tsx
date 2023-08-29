@@ -9,7 +9,7 @@ import {
   Icon,
   Stack,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import MiksImageList from "../components/MiksImageList";
 import BigBtn from "../components/BigBtn";
 import TechStack from "../components/TechStackIconList";
@@ -24,10 +24,11 @@ import { ReactComponent as SpotifyIcon } from "../assets/mikspics/icons8-spotify
 import { ReactComponent as YoutubeIconColored } from "../assets/mikspics/icons8-youtube.svg";
 import SpotifyEmbed from "../components/SpotifyEmbbed";
 import YouTubeEmbed from "../components/YTEmbbed";
+import Spline from '@splinetool/react-spline';
 
 export default function HomePage() {
   const [tabValue, setTabValue] = React.useState("tech");
-
+  const [pageStillLoading, setPageStillLoading] = useState<Boolean>(true)
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setTabValue(newValue);
   };
@@ -70,7 +71,7 @@ export default function HomePage() {
                   sx={{
                     color: tabValue === "tech" ? "#FFFFFF" : "lightgray",
                     textTransform: "none",
-                    fontSize: "large"
+                    fontSize: "large",
                   }}
                 />
                 <Tab
@@ -120,6 +121,17 @@ export default function HomePage() {
                     ></Typography>
                   </Grid>
                 </Grid>
+              </Grid>
+
+              <Grid item xs={10} lg={8}>
+                <Spline
+                  style={{
+                    height: "38rem",
+                    width: "100%",
+                    
+                  }}
+                  scene="https://prod.spline.design/kw9QJMHVJAQjR7Kh/scene.splinecode"
+                />
               </Grid>
 
               <Grid item xs={10} lg={7}>
@@ -360,11 +372,13 @@ export default function HomePage() {
               </Grid>
 
               <Grid item xs={10} lg={7}>
-                <Grid item xs={12} lg={10}>
-                  <YouTubeEmbed url="https://www.youtube.com/embed/aNkWRxgfcAg?si=48-PHjNHvRPkpu2w" />
-                  <Typography variant="body1" color="gray" pb={1} pt={1}>
-                    467 views • 1 year ago • 13 likes
-                  </Typography>
+                <Grid container justifyContent="center">
+                  <Grid item xs={12} lg={10}>
+                    <YouTubeEmbed url="https://www.youtube.com/embed/aNkWRxgfcAg?si=48-PHjNHvRPkpu2w" />
+                    <Typography variant="body1" color="gray" pb={1} pt={1}>
+                      467 views • 1 year ago • 13 likes
+                    </Typography>
+                  </Grid>
                 </Grid>
 
                 {/* <Grid container spacing={1}>
@@ -388,11 +402,13 @@ export default function HomePage() {
               </Grid>
 
               <Grid item xs={10} lg={7}>
-                <Grid item xs={12} lg={10}>
-                  <YouTubeEmbed url="https://www.youtube.com/embed/eG8OYiqGBxw?si=NTc_DjBkpGFqzzsF" />
-                  <Typography variant="body1" color="gray" pb={2} pt={1}>
-                    1K views • 1 year ago • 35 likes
-                  </Typography>
+                <Grid container justifyContent="center">
+                  <Grid item xs={12} lg={10}>
+                    <YouTubeEmbed url="https://www.youtube.com/embed/eG8OYiqGBxw?si=NTc_DjBkpGFqzzsF" />
+                    <Typography variant="body1" color="gray" pb={2} pt={1}>
+                      1K views • 1 year ago • 35 likes
+                    </Typography>
+                  </Grid>
                 </Grid>
               </Grid>
 
@@ -405,7 +421,7 @@ export default function HomePage() {
                   listening to my music.
                 </Typography>
               </Grid>
-              <Grid item xs={10} lg={7}>
+              <Grid item xs={10} lg={6}>
                 <SpotifyEmbed />
               </Grid>
             </>

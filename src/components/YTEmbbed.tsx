@@ -15,6 +15,9 @@ const YouTubeEmbed = (props: YoutubeEmbedTypes) => {
         src={props.url}
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
+        frameBorder="0"
+        scrolling="no"
+        allowTransparency={true}
       ></iframe>
     </Box>
   );
