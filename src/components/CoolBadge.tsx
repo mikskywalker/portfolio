@@ -6,7 +6,7 @@ import { Link } from "@mui/material";
 interface BadgeTypes {
     image: string,
     title: string,
-    url: string
+    url?: string
 }
 
 

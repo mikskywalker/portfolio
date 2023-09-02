@@ -35,6 +35,16 @@ declare module "@mui/material/Button" {
  const customWhiteText = '#D4D4C8'
 
 export const themes = createTheme({
+  typography: {
+    fontFamily: [
+      'Inter',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+    ].join(','),
+  
+  },
   components: {
     MuiButton: {
       defaultProps: {
