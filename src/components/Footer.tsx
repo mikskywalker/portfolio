@@ -20,7 +20,7 @@ export default function Footer() {
   return (
     <Box bgcolor="#111010">
       <Grid container justifyContent="center" spacing={3} pb={10} color="white">
-        <Grid item xs={12} md={8}>
+        <Grid item xs={12} md={7}>
           <Grid container justifyContent="center" spacing={3}>
             <Grid item xs={10} lg={7}>
               <Grid

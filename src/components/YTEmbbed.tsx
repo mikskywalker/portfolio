@@ -16,7 +16,7 @@ const YouTubeEmbed = (props: YoutubeEmbedTypes) => {
 
 { props.variant === 'default' && <>
       <iframe
-        title="YouTube Video"
+        title="Single Video"
         width="100%"
         // style={{aspectRatio: '16 / 9'}}
         height="315"
@@ -33,7 +33,7 @@ const YouTubeEmbed = (props: YoutubeEmbedTypes) => {
         width="100%"
         height="315"
         src={`https://www.youtube.com/embed/videoseries?list=${props.playlistID}`}
-        title="YouTube video player"
+        title="Youtube Playlist"
         frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen

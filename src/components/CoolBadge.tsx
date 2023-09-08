@@ -1,14 +1,20 @@
 
 // I can use this badge if i want a chip like component that can be included or nested inside the typograph component
 
-import { Link } from "@mui/material";
+import { Icon, Link } from "@mui/material";
+import { FunctionComponent, SVGProps } from "react";
+
+
 
 interface BadgeTypes {
-    image: string,
-    title: string,
-    url?: string
+    image?: string;
+    icon?: FunctionComponent<SVGProps<SVGSVGElement> & { title?: string | undefined; }>;
+    title: string;
+    url?: string;
+    size: 'default' | 'large' 
 }
 
+// choose one only, either image or icon
 
 export default function CoolBadge(props: BadgeTypes) {
     return (
@@ -26,9 +32,8 @@ export default function CoolBadge(props: BadgeTypes) {
           borderRadius: "5px",
           verticalAlign: "middle",
           px: 1,
+          height: props.size === 'large' ? '3rem' : undefined
           // pt: .3
-          
-
         }}
         underline="none"
       >
@@ -39,12 +44,22 @@ export default function CoolBadge(props: BadgeTypes) {
             flexWrap: "nowrap",
           }}
         >
+          {props.image && 
           <img
+            alt='logo'
             src={props.image}
             width="20px"
             height="auto"
             style={{ marginRight: "5px", borderRadius: 100 }}
-          />
+          />}
+          
+             {props.icon && 
+             <Icon  
+             component={props.icon} 
+             fontSize="inherit" 
+             style={{ marginRight: "5px", borderRadius: 100 }}
+             />}
+
          {props.title}
         </span>
       </Link>

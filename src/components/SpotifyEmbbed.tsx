@@ -3,6 +3,7 @@ import React from 'react';
 const SpotifyEmbed = () => {
   return (
     <iframe
+      title='spotify'
       style={{ 
       borderRadius: '12px',
       width: '100%',  // Use percentage width for responsiveness

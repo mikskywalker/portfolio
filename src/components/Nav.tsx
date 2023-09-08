@@ -7,21 +7,15 @@ import {
   MenuItem,
   Typography,
   useScrollTrigger,
-  Icon,
   Grid,
 } from "@mui/material";
-import Button, { ButtonProps } from "@mui/material/Button";
+import Button from "@mui/material/Button";
 import React, { useState } from "react";
-import { Outlet, Link, NavLink } from "react-router-dom";
-import { styled } from "@mui/material/styles";
+import { Outlet, Link } from "react-router-dom";
 
 // Icons
 import Toolbar from "@mui/material/Toolbar";
 import MenuIcon from "@mui/icons-material/Menu";
-import MusicNoteIcon from "@mui/icons-material/MusicNote";
-import DragonLogo from "../assets/mikspics/icons8-dragon-32.png";
-
-import { purple } from "@mui/material/colors";
 
 // example of custom
 /**
@@ -87,16 +81,6 @@ export default function Nav() {
       >
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <Icon
-              sx={{
-                display: { xs: "none", md: "flex" },
-                color: navMagicTexts,
-               
-              }}
-              fontSize="large"
-            >
-              <img src={DragonLogo} alt="Dragon Icon" />
-            </Icon>
             <Typography
               variant="h6"
               noWrap
@@ -179,7 +163,7 @@ export default function Nav() {
                   display: { xs: "block", md: "none" },
                 }}
               >
-                {/* Mobile view */}
+           
                 <Link to="/" style={{ textDecoration: "none" }}>
                   <MenuItem onClick={handleCloseNavMenu}>
                     <Typography color="secondary" textAlign="center">
@@ -196,6 +180,7 @@ export default function Nav() {
                 </MenuItem>
               </Menu>
             </Box>
+
             {/* 
             undecided if I want to use this instead, but for now ill just display my name
             <Icon sx={{ display: { xs: "flex", md: "none" } }} fontSize="large">

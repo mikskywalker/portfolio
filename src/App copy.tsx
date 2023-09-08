@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import "./App.css";
+import Nav from "./components/Nav";
 import {
   Box,
   Fab,
@@ -9,13 +11,17 @@ import {
   createTheme,
   useScrollTrigger,
 } from "@mui/material";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import NoPage from "./pages/nopage/NoPage";
 import HomePage from "./pages/home/HomePage";
+import Contact from "./pages/contact/Contact";
 import { grey, deepPurple, purple } from "@mui/material/colors";
 import Footer from "./components/Footer";
 
 // icons
 import KeyboardArrowUpOutlinedIcon from "@mui/icons-material/KeyboardArrowUpOutlined";
 import KeyboardDoubleArrowUpOutlinedIcon from "@mui/icons-material/KeyboardDoubleArrowUpOutlined";
+
 
 // need for overiding mui components on ts
 declare module "@mui/material/Button" {
@@ -26,22 +32,23 @@ declare module "@mui/material/Button" {
 }
 
 // const customColorTeal = "#0BD99E";
-const customWhiteText = "#D4D4C8";
+ const customWhiteText = '#D4D4C8'
 
 export const themes = createTheme({
   typography: {
     fontFamily: [
       '"Inter"',
-      "Roboto",
+      'Roboto',
       '"Helvetica Neue"',
-      "Arial",
+      'Arial',
       // 'sans-serif',
-    ].join(","),
+    ].join(','),
+  
   },
   components: {
     MuiButton: {
       defaultProps: {
-        color: "inherit",
+        color: 'inherit'
       },
       variants: [
         {
@@ -75,27 +82,27 @@ export const themes = createTheme({
     },
     MuiTypography: {
       defaultProps: {
-        variant: "body1", // Set the default variant for Typography
+        variant: 'body1', // Set the default variant for Typography
         lineHeight: 2, // Adjust line height
-        color: customWhiteText,
+        color: customWhiteText
         // Add more default styles as needed
       },
-    },
+    }
   },
   palette: {
     primary: {
       light: deepPurple[300],
       main: purple[400],
       dark: deepPurple[900],
-      contrastText: "#fff",
+      contrastText: '#fff',
     },
     secondary: {
       // main: '#262626',
       light: grey.A400,
-      main: grey[600],
+      main: grey[400],
       dark: grey[800],
       contrastText: customWhiteText,
-    },
+    }
   },
 });
 
@@ -177,7 +184,15 @@ function App(props: Props) {
         {/* This grid is an anchor for the back-to-top button */}
         <Grid id="back-to-top-anchor" />
         <Box sx={{ flexGrow: 1 }}>
-          <HomePage />
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Nav />}>
+                <Route index element={<HomePage />} />
+                <Route path="contact" element={<Contact />} />
+                <Route path="*" element={<NoPage />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
         </Box>
         <ScrollTop {...props}>
           <Fab

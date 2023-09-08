@@ -1,68 +1,14 @@
 import { Grid, Typography, Tabs, Tab } from "@mui/material";
 import React, { useEffect, useState } from "react";
-import BioMusic, { BioMusicTypes } from "../components/BioMusic";
-import BioTech from "../components/BioTech";
+import BioMusic from "../../components/BioMusic";
+import BioTech from "../../components/BioTech";
 import Axios from "axios";
+import { APIKey } from "../../apikey";
+import { ChannelTypes, YouTubeChannelDataTypes } from "./home-types";
 
-export interface ChannelTypes {
-  channelName: string;
-  thumbnailImg: string;
-  subscriberCount: string;
-  viewCount: string;
-}
-
-interface YouTubeChannelDataTypes {
-  kind: string;
-  etag: string;
-  pageInfo: {
-    totalResults: number;
-    resultsPerPage: number;
-  };
-  items: [
-    {
-      kind: string;
-      etag: string;
-      id: string;
-      snippet: {
-        title: string;
-        description: string;
-        customUrl: string;
-        publishedAt: string;
-        thumbnails: {
-          default: {
-            url: string;
-            width: number;
-            height: number;
-          };
-          medium: {
-            url: string;
-            width: number;
-            height: number;
-          };
-          high: {
-            url: string;
-            width: number;
-            height: number;
-          };
-        };
-        localized: {
-          title: string;
-          description: string;
-        };
-        country: string;
-      };
-      statistics: {
-        viewCount: string;
-        subscriberCount: string;
-        hiddenSubscriberCount: boolean;
-        videoCount: string;
-      };
-    }
-  ];
-}
 
 export default function HomePage() {
-  const [tabValue, setTabValue] = React.useState("music");
+  const [tabValue, setTabValue] = React.useState("tech");
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
     setTabValue(newValue);
@@ -80,34 +26,23 @@ export default function HomePage() {
 
   };
 
-  /** 
-     I can also do custom colors lke this using mui colors
-      const divColor = teal['A100']
-   * 
-      */
-  const APIKey = "AIzaSyAKQ1VM27uUPWt9C-xjZX3oBvdZBTzB1e4";
-  const miksChannelId = "UCPfm7j1Wm-S7hmUgk49nf8g";
+/** 
+   I can also do custom colors lke this using mui colors
+  const divColor = teal['A100']
+ * 
+*/
 
+  // const miksChannelId = "UCPfm7j1Wm-S7hmUgk49nf8g";
   // request to get channel data https://youtube.googleapis.com/youtube/v3/channels?part=snippet&part=statistics&id=UCPfm7j1Wm-S7hmUgk49nf8g&key=[YOUR_API_KEY]
 
   useEffect(() => {
-    // I was triggered
-    // async function getSearchData() {
-    //   try {
-    //     const response = await Axios.get(`https://youtube.googleapis.com/youtube/v3/search?key=${APIKey}`);
-    //     console.log('data: ', response);
-    //   } catch (error) {
-    //     console.error(error);
-    //   }
-    // }
-    // getSearchData()
     async function getChannelData() {
       try {
         const response = await Axios.get(
           `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&part=statistics&id=UCPfm7j1Wm-S7hmUgk49nf8g&key=${APIKey}`
         );
         setMaterializedData(response.data);
-        console.log("channel data: ", response.data);
+        // console.log("channel data: ", response.data);
       } catch (error) {
         console.error(error);
       }
@@ -125,7 +60,7 @@ export default function HomePage() {
         marginBottom: "5rem",
       }}
     >
-      <Grid item xs={12} md={8}>
+      <Grid item xs={12} md={7}>
         <Grid
           container
           alignContent="center"
@@ -133,12 +68,13 @@ export default function HomePage() {
           justifyContent="center"
         >
           <Grid item xs={10} lg={7}>
-            <Grid container>
+            <Grid container  pt={5}>
               <Tabs
                 value={tabValue}
                 onChange={handleTabChange}
-                indicatorColor="primary"
+                indicatorColor='secondary'
                 aria-label="tabs for tech or music"
+               
               >
                 <Tab
                   value="tech"
@@ -147,7 +83,7 @@ export default function HomePage() {
                   sx={{
                     color: tabValue === "tech" ? "#FFFFFF" : "#D4D4C8",
                     textTransform: "none",
-                    // fontSize: "large",
+                    mb: -2,
                   }}
                 />
                 <Tab
@@ -157,7 +93,7 @@ export default function HomePage() {
                   sx={{
                     color: tabValue === "music" ? "#FFFFFF" : "#D4D4C8",
                     textTransform: "none",
-                    // fontSize: "large",
+                    mb: -2
                   }}
                 />
               </Tabs>
