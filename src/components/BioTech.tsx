@@ -87,8 +87,7 @@ export default function BioTech() {
           <Typography variant="body1">
             Moreover, I take great pride in supporting a close-knit community
             that I've built, consisting of friends and peers who are navigating
-            career shifts into the tech industry. I'm excited to share that two
-            of them have successfully landed jobs this year.
+            career shifts into the tech industry.
           </Typography>
         </Grid>
       </>
