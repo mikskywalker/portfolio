@@ -23,7 +23,6 @@ export default function HomePage() {
     thumbnailImg: materializedData ? materializedData.items[0].snippet.thumbnails.default.url : '',
     subscriberCount: materializedData ? materializedData.items[0].statistics.subscriberCount : '',
     viewCount: materializedData ? materializedData.items[0].statistics.viewCount : '',
-
   };
 
 /** 
@@ -99,14 +98,14 @@ export default function HomePage() {
               </Tabs>
             </Grid>
           </Grid>
-
+   
           <Grid item xs={10} lg={7}>
             <Typography variant="h5" pt={3} color="white" fontWeight="bold">
               hey, I'm Miks 👋
             </Typography>
           </Grid>
 
-          {tabValue === "tech" && <BioTech />}
+          {tabValue === "tech" && <BioTech  />}
 
           {tabValue === "music" && (
             <BioMusic

@@ -11,7 +11,6 @@ import SmudgeLogo from "../assets/mikspics/Screenshot 2023-08-23 194608.png";
 import SplineLogo from "../assets/mikspics/spline3d.png";
 
 export default function BioTech() {
-   
     return (
       <>
         <Grid item xs={10} lg={7}>
@@ -26,9 +25,9 @@ export default function BioTech() {
                   title="Smudge"
                   url="https://smudge.com/"
                 />
-                , where I build web applications for an array of projects like
+                 &nbsp;where I build web applications for an array of projects like
                 <strong> PACE</strong>, <strong> CCEP</strong>,{" "}
-                <strong> URstore</strong>, and <strong> Wayfind</strong> using
+                <strong> UrStore</strong>, and <strong> Wayfind</strong> using
                 technologies including the following
               </Typography>
             </Grid>
@@ -59,9 +58,7 @@ export default function BioTech() {
               width: "100%",
             }}
             scene="https://prod.spline.design/kw9QJMHVJAQjR7Kh/scene.splinecode"
-            onLoad={() => {
-              console.log("3d has been loaded");
-            }}
+            onLoad={() => {}}
           />
         </Grid>
 

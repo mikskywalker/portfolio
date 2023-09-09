@@ -27,25 +27,27 @@ export default function MiksImageList() {
 
   
   return (
-    <Box sx={{ maxWidth: "100%", height: "100%" }}>
-      {loading ? (
-        <Grid container direction="row" spacing={1}>
-          {[...Array(6)].map((_, index) => (
-            <Grid item xs key={index}>
-              <Skeleton
-                variant="rectangular"
-                width='100%'
-                // height={210}
-                sx={{ bgcolor: "grey.900" }}
-              />
-            </Grid>
-          ))}
-        </Grid>
-      ) : (
-        <ImageList variant="masonry" cols={isSmallScreen ? 2 : 3} gap={12} sx={{ minWidth: 200, minHeight: 200 }}>
-          {itemData.map((item, index) => (
-            <Fade key={index} in style={{ transitionDelay: `${index * 100}ms` }}>
-              <ImageListItem >
+    <Box sx={{ maxWidth: "100%", maxHeight: "100%" }}>
+      <ImageList
+        variant="masonry"
+        cols={isSmallScreen ? 2 : 3}
+        gap={12}
+        sx={{ minWidth: 200, minHeight: 200 }}
+      >
+        {itemData.map((item, index) => (
+          <Fade key={index} in style={{ transitionDelay: `${index * 100}ms` }}>
+            <ImageListItem>
+              {loading ? (
+                <Grid container direction="row" spacing={1}>
+                  <Grid item xs>
+                    <Skeleton
+                      variant="rectangular"
+                      width="100%"
+                      sx={{ bgcolor: "grey.900", minHeight: 200 }}
+                    />
+                  </Grid>
+                </Grid>
+              ) : (
                 <img
                   src={`${item.img}?w=248&fit=crop&auto=format`}
                   srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
@@ -53,15 +55,14 @@ export default function MiksImageList() {
                   loading="lazy"
                   style={{ borderRadius: "5px" }}
                 />
-              </ImageListItem>
-            </Fade>
-          ))}
-        </ImageList>
-      )}
+              )}
+            </ImageListItem>
+          </Fade>
+        ))}
+      </ImageList>
     </Box>
   );
 }
-// TODO: figure out how to better implement the imagelist on small screens
 
 const itemData = [
   {
