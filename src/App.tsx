@@ -32,11 +32,9 @@ const customWhiteText = "#D4D4C8";
 export const themes = createTheme({
   typography: {
     fontFamily: [
-      '"Inter"',
-      "Roboto",
-      '"Helvetica Neue"',
+      "Inter",
       "Arial",
-      // 'sans-serif',
+      'sans-serif',
     ].join(","),
   },
   components: {
@@ -76,10 +74,9 @@ export const themes = createTheme({
     },
     MuiTypography: {
       defaultProps: {
-        variant: "body1", // Set the default variant for Typography
-        lineHeight: 2, // Adjust line height
+        variant: "body1",
+        lineHeight: 2, 
         color: customWhiteText,
-        // Add more default styles as needed
       },
     },
   },

@@ -32,8 +32,7 @@ export default function CoolBadge(props: BadgeTypes) {
           borderRadius: "5px",
           verticalAlign: "middle",
           px: 1,
-          height: props.size === 'large' ? '3rem' : undefined
-          // pt: .3
+          height: props.size === 'large' ? '3rem' : undefined,
         }}
         underline="none"
       >
@@ -48,7 +47,7 @@ export default function CoolBadge(props: BadgeTypes) {
           <img
             alt='logo'
             src={props.image}
-            width="20px"
+            width="15px"
             height="auto"
             style={{ marginRight: "5px", borderRadius: 100 }}
           />}

@@ -56,7 +56,7 @@ export default function BioMusic(props: BioMusicTypes) {
           underline="none"
           rel="noopener"
           target="_blank"
-          href="https://www.facebook.com/learnviolinofficial"
+          href="https://www.youtube.com/@MiksCasal"
         >
           <Grid
             container
@@ -99,13 +99,14 @@ export default function BioMusic(props: BioMusicTypes) {
                       alt="youtube thumbnail"
                       src={props.thumbnail}
                       width="50px"
+                      height='50px'
                       style={{ borderRadius: 50 }}
                     />
                   </Badge>
                 </Grid>
                 <Grid item>
                   <Stack direction="column">
-                    <Typography variant="body1" lineHeight={1}>
+                    <Typography variant="body1" lineHeight={1} fontWeight='bold'>
                       {props.name}
                     </Typography>
                     <Typography pt={0.5} variant="body2" lineHeight={1.3}>
