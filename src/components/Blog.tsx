@@ -2,7 +2,6 @@ import { Grid, Link, Stack, Typography } from "@mui/material";
 import CallMadeIcon from "@mui/icons-material/CallMade";
 
 interface BlogTypes {
-    key: number;
     url: string;
     title: string
     views: number;
@@ -13,7 +12,6 @@ export default function Blog(props: BlogTypes) {
     return (
     <>
     <Link
-    key={props.key}
     variant="body1"
     underline="none"
     rel="noopener"

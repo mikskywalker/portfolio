@@ -9,13 +9,6 @@ import { ChannelTypes, YouTubeChannelDataTypes } from "./home-types";
 
 
 export default function HomePage() {
- 
-  
-  const [tabValue, setTabValue] = React.useState("tech");
-
-  const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
-    setTabValue(newValue);
-  };
 
   const [materializedData, setMaterializedData] = useState<
     YouTubeChannelDataTypes | undefined
@@ -27,9 +20,12 @@ export default function HomePage() {
     subscriberCount: materializedData ? materializedData.items[0].statistics.subscriberCount : '',
     viewCount: materializedData ? materializedData.items[0].statistics.viewCount : '',
   };
-
   const [blogData, setBlogData] = useState([]);
-  console.log(blogData)
+  const [tabValue, setTabValue] = React.useState("tech");
+
+  const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
+    setTabValue(newValue);
+  };
 /** 
    I can also do custom colors lke this using mui colors
   const divColor = teal['A100']
@@ -45,7 +41,6 @@ export default function HomePage() {
           `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&part=statistics&id=UCPfm7j1Wm-S7hmUgk49nf8g&key=${youtubeApiKey}`
         );
         setMaterializedData(response.data);
-        // console.log("channel data: ", response.data);
       } catch (error) {
         console.error(error);
       }
