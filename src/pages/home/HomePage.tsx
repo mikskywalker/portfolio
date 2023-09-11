@@ -3,28 +3,29 @@ import React, { useEffect, useState } from "react";
 import BioMusic from "../../components/BioMusic";
 import BioTech from "../../components/BioTech";
 import Axios from "axios";
-import { APIKey } from "../../apikey";
+import { youtubeApiKey, hashNodeApiKey } from "../../apikey";
 import { ChannelTypes, YouTubeChannelDataTypes } from "./home-types";
 
 
-export default function HomePage() {
-  const [tabValue, setTabValue] = React.useState("tech");
 
-  const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
-    setTabValue(newValue);
-  };
+export default function HomePage() {
 
   const [materializedData, setMaterializedData] = useState<
     YouTubeChannelDataTypes | undefined
   >(undefined);
 
-  const data: ChannelTypes = {
+  const youTubedData: ChannelTypes = {
     channelName: materializedData ? materializedData.items[0].snippet.customUrl : '',
     thumbnailImg: materializedData ? materializedData.items[0].snippet.thumbnails.default.url : '',
     subscriberCount: materializedData ? materializedData.items[0].statistics.subscriberCount : '',
     viewCount: materializedData ? materializedData.items[0].statistics.viewCount : '',
   };
+  const [blogData, setBlogData] = useState([]);
+  const [tabValue, setTabValue] = React.useState("tech");
 
+  const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
+    setTabValue(newValue);
+  };
 /** 
    I can also do custom colors lke this using mui colors
   const divColor = teal['A100']
@@ -33,20 +34,52 @@ export default function HomePage() {
 
   // const miksChannelId = "UCPfm7j1Wm-S7hmUgk49nf8g";
   // request to get channel data https://youtube.googleapis.com/youtube/v3/channels?part=snippet&part=statistics&id=UCPfm7j1Wm-S7hmUgk49nf8g&key=[YOUR_API_KEY]
-
   useEffect(() => {
     async function getChannelData() {
       try {
         const response = await Axios.get(
-          `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&part=statistics&id=UCPfm7j1Wm-S7hmUgk49nf8g&key=${APIKey}`
+          `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&part=statistics&id=UCPfm7j1Wm-S7hmUgk49nf8g&key=${youtubeApiKey}`
         );
         setMaterializedData(response.data);
-        // console.log("channel data: ", response.data);
       } catch (error) {
         console.error(error);
       }
     }
     getChannelData()
+  }, []);
+
+  useEffect(() => {
+    // Hashnode API endpoint and API
+    const apiUrl = 'https://api.hashnode.com/';
+    const apiKey = hashNodeApiKey;
+
+    // GraphQL query
+    const query = `
+      {
+        user(username: "mikscasal") {
+          publication {
+            posts(page: 0) {
+              title
+              slug
+              brief
+              readTime
+              views
+              dateAdded
+            }
+          }
+        }
+      }
+    `;
+
+    // the API request
+    Axios
+      .post(apiUrl, { query }, { headers: { Authorization: apiKey } })
+      .then((response) => {
+        setBlogData(response.data.data.user.publication.posts);
+      })
+      .catch((error) => {
+        console.error('Error fetching blog data:', error);
+      });
   }, []);
 
   return (
@@ -67,7 +100,7 @@ export default function HomePage() {
           justifyContent="center"
         >
           <Grid item xs={10} lg={7}>
-            <Grid container  pt={5}>
+            <Grid container  pt={4}>
               <Tabs
                 value={tabValue}
                 onChange={handleTabChange}
@@ -92,7 +125,10 @@ export default function HomePage() {
                   sx={{
                     color: tabValue === "music" ? "#FFFFFF" : "#D4D4C8",
                     textTransform: "none",
-                    mb: -2
+                    mb: -2,
+                    '&:hover': {
+                      color: 'green',
+                    }
                   }}
                 />
               </Tabs>
@@ -101,18 +137,18 @@ export default function HomePage() {
    
           <Grid item xs={10} lg={7}>
             <Typography variant="h5" pt={3} color="white" fontWeight="bold">
-              hey, I'm Miks 👋
+              Hey, I'm Miks
             </Typography>
           </Grid>
 
-          {tabValue === "tech" && <BioTech  />}
+          {tabValue === "tech" && <BioTech blogData={blogData} />}
 
           {tabValue === "music" && (
             <BioMusic
-              name={data.channelName}
-              thumbnail={data?.thumbnailImg}
-              subscriberCount={data.subscriberCount}
-              viewCount={data.viewCount}
+              name={youTubedData.channelName}
+              thumbnail={youTubedData?.thumbnailImg}
+              subscriberCount={youTubedData.subscriberCount}
+              viewCount={youTubedData.viewCount}
             />
           )}
         </Grid>

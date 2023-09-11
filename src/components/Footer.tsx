@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, Grid, Link, Stack, Typography } from "@mui/material";
+import { Box, Button, Grid, Link, Typography } from "@mui/material";
 
 // icons
 import TwitterIcon from "@mui/icons-material/Twitter";

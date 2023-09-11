@@ -1,1 +1,3 @@
-export const APIKey = "AIzaSyAKQ1VM27uUPWt9C-xjZX3oBvdZBTzB1e4";
+ // api keys
+export const youtubeApiKey = process.env.REACT_APP_YOUTUBE_API_KEY
+export const hashNodeApiKey = process.env.REACT_APP_HASHNODE_API_KEY;
