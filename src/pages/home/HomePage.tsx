@@ -3,11 +3,14 @@ import React, { useEffect, useState } from "react";
 import BioMusic from "../../components/BioMusic";
 import BioTech from "../../components/BioTech";
 import Axios from "axios";
-import { APIKey } from "../../apikey";
+import { youtubeApiKey, hashNodeApiKey } from "../../apikey";
 import { ChannelTypes, YouTubeChannelDataTypes } from "./home-types";
 
 
+
 export default function HomePage() {
+ 
+  
   const [tabValue, setTabValue] = React.useState("tech");
 
   const handleTabChange = (event: React.SyntheticEvent, newValue: string) => {
@@ -39,7 +42,7 @@ export default function HomePage() {
     async function getChannelData() {
       try {
         const response = await Axios.get(
-          `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&part=statistics&id=UCPfm7j1Wm-S7hmUgk49nf8g&key=${APIKey}`
+          `https://youtube.googleapis.com/youtube/v3/channels?part=snippet&part=statistics&id=UCPfm7j1Wm-S7hmUgk49nf8g&key=${youtubeApiKey}`
         );
         setMaterializedData(response.data);
         // console.log("channel data: ", response.data);
@@ -53,7 +56,7 @@ export default function HomePage() {
   useEffect(() => {
     // Hashnode API endpoint and API
     const apiUrl = 'https://api.hashnode.com/';
-    const apiKey = '92890d9f-41cd-41d0-8a54-265607556662';
+    const apiKey = hashNodeApiKey;
 
     // GraphQL query
     const query = `

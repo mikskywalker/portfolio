@@ -33,8 +33,8 @@ export default function BioTech(props: BlogData) {
           <Grid container direction="row">
             <Grid item>
               <Typography variant="body1">
-                I'm a frontend developer, a musician, and a mentor. I currently
-                work as a Software Engineer at &nbsp;
+                I'm a frontend developer, a musician, and an optimist. I
+                currently work as a Software Engineer at &nbsp;
                 <CoolBadge
                   size="default"
                   image={SmudgeLogo}
@@ -106,15 +106,20 @@ export default function BioTech(props: BlogData) {
 
         <Grid item xs={10} lg={7} mt={3}>
           <Typography variant="body1">
-            I share and write about my experiences as someone who shifted
-            careers after being a fulltime musician for morethan a decade to tech here on my blog.
+          Here on my blog, I share my insights and experiences as someone who shifted careers from music to tech.
           </Typography>
         </Grid>
 
         <Grid item xs={10} lg={7}>
           <Stack direction="column" spacing={3}>
             {props.blogData.map((blog, index) => (
-              <Blog key={index} url={`https://hashnode.com/post/${blog.slug}`} title={blog.title} views={blog.views} readTime={blog.readTime} />
+              <Blog
+                key={index}
+                url={`https://hashnode.com/post/${blog.slug}`}
+                title={blog.title}
+                views={blog.views}
+                readTime={blog.readTime}
+              />
             ))}
           </Stack>
         </Grid>
@@ -122,8 +127,8 @@ export default function BioTech(props: BlogData) {
         <Grid item xs={10} lg={7} mt={3}>
           <Typography variant="body1">
             Moreover, I take great pride in supporting a close-knit community
-            that I've built, consisting of friends and peers who are also navigating
-            career shifts into the tech industry.
+            that I've built, consisting of friends and peers who are also
+            navigating career shifts into the tech industry.
           </Typography>
         </Grid>
       </>
