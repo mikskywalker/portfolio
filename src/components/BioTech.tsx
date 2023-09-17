@@ -1,4 +1,4 @@
-import { Grid, Link, Stack, Typography } from "@mui/material";
+import { Grid, Stack, Typography } from "@mui/material";
 import Spline from "@splinetool/react-spline";
 import CoolBadge from "./CoolBadge";
 import {ReactComponent as ReactLogo} from '../assets/mikspics/icons8-react.svg'

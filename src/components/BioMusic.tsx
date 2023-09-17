@@ -131,7 +131,7 @@ export default function BioMusic(props: BioMusicTypes) {
           <Grid item xs={12} lg={12}>
             <YouTubeEmbed
               variant="playlist"
-              playlistID="PLz5CiRXf5jzuryjP8THXiXOxa4hkHZzQO"
+              playlistID="PLz5CiRXf5jzszcB6VxDKtgpEtUeh5XHFE"
             />
           </Grid>
         </Grid>
